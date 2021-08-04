@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { fetchToken } from '../redux/actions';
@@ -12,7 +12,6 @@ class Login extends Component {
     this.state = {
       name: '',
       email: '',
-      redirect: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,7 +21,6 @@ class Login extends Component {
   handleClick() {
     const { requestToken } = this.props;
     requestToken();
-    this.setState({ redirect: true });
   }
 
   handleChange({ target: { name, value } }) {
@@ -40,10 +38,8 @@ class Login extends Component {
   }
 
   render() {
-    const { name, email, redirect } = this.state;
-    if (redirect) {
-      return <Redirect to="/game" />;
-    }
+    const { name, email } = this.state;
+
     return (
       <form>
         <img src={ logo } className="App-logo" alt="logo" />
@@ -61,14 +57,24 @@ class Login extends Component {
           value={ email }
           onChange={ this.handleChange }
         />
-        <button
-          type="button"
-          data-testid="btn-play"
-          disabled={ this.validateInputs() }
-          onClick={ this.handleClick }
-        >
-          Jogar
-        </button>
+        <Link to="/game">
+          <button
+            type="button"
+            data-testid="btn-play"
+            disabled={ this.validateInputs() }
+            onClick={ this.handleClick }
+          >
+            Jogar
+          </button>
+        </Link>
+        <Link to="/config">
+          <button
+            type="button"
+            data-testid="btn-settings"
+          >
+            Configurações
+          </button>
+        </Link>
       </form>);
   }
 }

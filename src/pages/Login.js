@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { fetchToken } from '../redux/actions';
+import { fetchToken, updateEmail, updateName } from '../redux/actions';
 import logo from '../trivia.png';
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.state = {
       name: '',
@@ -19,7 +19,10 @@ class Login extends Component {
   }
 
   handleClick() {
-    const { requestToken } = this.props;
+    const { requestToken, storeName, storeEmail } = this.props;
+    const { name, email } = this.state;
+    storeName(name);
+    storeEmail(email);
     requestToken();
   }
 
@@ -52,7 +55,7 @@ class Login extends Component {
         />
         <input
           name="email"
-          placeholder="Nome"
+          placeholder="Email"
           data-testid="input-gravatar-email"
           value={ email }
           onChange={ this.handleChange }
@@ -81,10 +84,15 @@ class Login extends Component {
 
 const mapDispatchToProps = (dispatch) => ({
   requestToken: () => dispatch(fetchToken()),
+  storeName: (name) => dispatch(updateName(name)),
+  storeEmail: (email) => dispatch(updateEmail(email)),
+
 });
 
 Login.propTypes = {
   requestToken: propTypes.func.isRequired,
+  storeName: propTypes.func.isRequired,
+  storeEmail: propTypes.func.isRequired,
 };
 
 export default connect(null, mapDispatchToProps)(Login);

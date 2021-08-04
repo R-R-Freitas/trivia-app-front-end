@@ -1,4 +1,5 @@
 export const UPDATE_NAME = 'UPDATE_NAME';
+export const UPDATE_EMAIL = 'UPDATE_EMAIL';
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
 const TRIVIA_API = 'https://opentdb.com/api_token.php?command=request';
 
@@ -9,6 +10,11 @@ export const updateName = (payload) => ({
 
 const updateToken = (payload) => ({
   type: UPDATE_TOKEN,
+  payload,
+});
+
+export const updateEmail = (payload) => ({
+  type: UPDATE_EMAIL,
   payload,
 });
 

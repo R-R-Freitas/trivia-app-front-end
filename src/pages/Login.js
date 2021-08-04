@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
+import { fetchToken } from '../redux/actions';
 import logo from '../trivia.png';
 
 class Login extends Component {
@@ -8,9 +12,17 @@ class Login extends Component {
     this.state = {
       name: '',
       email: '',
+      redirect: false,
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    const { requestToken } = this.props;
+    requestToken();
+    this.setState({ redirect: true });
   }
 
   handleChange({ target: { name, value } }) {
@@ -28,8 +40,10 @@ class Login extends Component {
   }
 
   render() {
-    const { name, email } = this.state;
-
+    const { name, email, redirect } = this.state;
+    if (redirect) {
+      return <Redirect to="/game" />;
+    }
     return (
       <form>
         <img src={ logo } className="App-logo" alt="logo" />
@@ -51,6 +65,7 @@ class Login extends Component {
           type="button"
           data-testid="btn-play"
           disabled={ this.validateInputs() }
+          onClick={ this.handleClick }
         >
           Jogar
         </button>
@@ -58,4 +73,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  requestToken: () => dispatch(fetchToken()),
+});
+
+Login.propTypes = {
+  requestToken: propTypes.func.isRequired,
+};
+
+export default connect(null, mapDispatchToProps)(Login);

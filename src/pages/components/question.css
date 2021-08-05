@@ -1,0 +1,10 @@
+/* Utilize a propriedade css border com o valor 3px solid rgb(6, 240, 15) para a alternativa correta.
+Utilize a propriedade css border com o valor 3px solid rgb(255, 0, 0) para as alternativas incorretas. */
+
+.correctAnswer {
+    border: 3px solid rgb(6, 240, 15);
+}
+
+.incorrectAnswer {
+    border: 3px solid rgb(255, 0, 0);
+}

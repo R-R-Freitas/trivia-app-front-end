@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { fetchQuestions } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
+// import Timer from '../components/Timer';
 
 class Game extends Component {
   componentDidMount() {

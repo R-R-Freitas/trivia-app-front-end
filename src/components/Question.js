@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './question.css';
+import Timer from './Timer';
 
 class Question extends Component {
   constructor(props) {
@@ -63,6 +64,7 @@ class Question extends Component {
 
     return (
       <section>
+        <Timer timeOut={ this.onClickQuestion } />
         <h3 data-testid="question-category">{category}</h3>
         <p data-testid="question-text">{question}</p>
         { this.randomize(allAnswers) }

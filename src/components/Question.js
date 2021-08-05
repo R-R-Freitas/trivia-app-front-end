@@ -7,16 +7,16 @@ class Question extends Component {
     super(props);
     this.state = {
       clicked: false,
-    }
-
-    this.onClickQuestion = this.onClickQuestion.bind(this);
-  } 
-  
-  onClickQuestion() {
-      this.setState({
-        clicked: true,
-      })
     };
+    this.onClickQuestion = this.onClickQuestion.bind(this);
+  }
+
+  onClickQuestion() {
+    this.setState({
+      clicked: true,
+    });
+  }
+
   randomize(array) {
     for (let lastIndex = array.length - 1; lastIndex > 0; lastIndex -= 1) {
       const randomIndex = Math.floor(Math.random() * lastIndex);
@@ -29,7 +29,7 @@ class Question extends Component {
 
   render() {
     const { questionAPI } = this.props;
-    const { clicked, disabled } = this.state;
+    const { clicked } = this.state;
     const {
       category,
       question,
@@ -43,7 +43,7 @@ class Question extends Component {
         key="4"
         onClick={ this.onClickQuestion }
         className={ clicked && 'correctAnswer' }
-        disabled={ clicked }  
+        disabled={ clicked }
       >
         {correctAnswer}
       </button>);

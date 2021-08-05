@@ -1,7 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import './question.css';
 
 class Question extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      clicked: false,
+    };
+    this.onClickQuestion = this.onClickQuestion.bind(this);
+  }
+
+  onClickQuestion() {
+    this.setState({
+      clicked: true,
+    });
+  }
+
   randomize(array) {
     for (let lastIndex = array.length - 1; lastIndex > 0; lastIndex -= 1) {
       const randomIndex = Math.floor(Math.random() * lastIndex);
@@ -14,6 +29,7 @@ class Question extends Component {
 
   render() {
     const { questionAPI } = this.props;
+    const { clicked } = this.state;
     const {
       category,
       question,
@@ -25,6 +41,9 @@ class Question extends Component {
         type="button"
         data-testid="correct-answer"
         key="4"
+        onClick={ this.onClickQuestion }
+        className={ clicked && 'correctAnswer' }
+        disabled={ clicked }
       >
         {correctAnswer}
       </button>);
@@ -33,12 +52,14 @@ class Question extends Component {
         type="button"
         key={ index }
         data-testid={ `wrong-answer-${index}` }
+        onClick={ this.onClickQuestion }
+        className={ clicked && 'incorrectAnswer' }
+        disabled={ clicked }
       >
         {answer}
       </button>
     ));
     const allAnswers = [correct, ...incorrect];
-    console.log(allAnswers);
 
     return (
       <section>

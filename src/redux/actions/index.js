@@ -2,6 +2,9 @@ export const UPDATE_NAME = 'UPDATE_NAME';
 export const UPDATE_QUESTION = 'UPDATE_QUESTION';
 export const UPDATE_EMAIL = 'UPDATE_EMAIL';
 export const UPDATE_TOKEN = 'UPDATE_TOKEN';
+export const INCREASE_ASSERTIONS = 'INCREASE_ASSERTIONS';
+export const INCREASE_SCORE = 'INCREASE_SCORE';
+
 const TRIVIA_API = 'https://opentdb.com/api_token.php?command=request';
 
 export const updateName = (payload) => ({
@@ -16,6 +19,15 @@ const updateToken = (payload) => ({
 
 export const updateEmail = (payload) => ({
   type: UPDATE_EMAIL,
+  payload,
+});
+
+export const increaseAssertions = () => ({
+  type: INCREASE_ASSERTIONS,
+});
+
+export const increaseScore = (payload) => ({
+  type: INCREASE_SCORE,
   payload,
 });
 

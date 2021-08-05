@@ -1,20 +1,35 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import './question.css';
+import { connect } from 'react-redux';
+import { increaseAssertions, increaseScore } from '../redux/actions';
 
 class Question extends Component {
   constructor(props) {
     super(props);
     this.state = {
       clicked: false,
+      timeLeft: 15,
     };
     this.onClickQuestion = this.onClickQuestion.bind(this);
   }
 
-  onClickQuestion() {
+  onClickQuestion(correct) {
+    const { questionAPI, setAssertion, setScore } = this.props;
+    const { difficulty } = questionAPI;
+    const { timeLeft } = this.state;
+    const multiplyer = { hard: 3, medium: 2, easy: 1 }[difficulty];
+    // const mult = multiplyers[difficulty];
+    console.log(multiplyer);
+    console.log(questionAPI);
+    const points = 10;
     this.setState({
       clicked: true,
     });
+    if (correct) {
+      setAssertion();
+      setScore(points);
+    }
   }
 
   randomize(array) {
@@ -41,7 +56,7 @@ class Question extends Component {
         type="button"
         data-testid="correct-answer"
         key="4"
-        onClick={ this.onClickQuestion }
+        onClick={ () => this.onClickQuestion(true) }
         className={ clicked && 'correctAnswer' }
         disabled={ clicked }
       >
@@ -52,7 +67,7 @@ class Question extends Component {
         type="button"
         key={ index }
         data-testid={ `wrong-answer-${index}` }
-        onClick={ this.onClickQuestion }
+        onClick={ () => this.onClickQuestion(false) }
         className={ clicked && 'incorrectAnswer' }
         disabled={ clicked }
       >
@@ -76,6 +91,13 @@ Question.propTypes = ({
   question: PropTypes.string,
   correctAnswer: PropTypes.string,
   incorrectAnswers: PropTypes.arrayOf(PropTypes.string),
+  setAssertion: PropTypes.func.isRequired,
+  setScore: PropTypes.func.isRequired,
 }).isRequired;
 
-export default Question;
+const mapDispatchToProps = (dispatch) => ({
+  setAssertion: () => dispatch(increaseAssertions()),
+  setScore: (points) => dispatch(increaseScore(points)),
+});
+
+export default connect(null, mapDispatchToProps)(Question);

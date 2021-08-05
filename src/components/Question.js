@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import './question.css';
 import { connect } from 'react-redux';
 import { increaseAssertions, increaseScore } from '../redux/actions';
+import Timer from './Timer';
 
 class Question extends Component {
   constructor(props) {
@@ -18,6 +19,7 @@ class Question extends Component {
     const { questionAPI, setAssertion, setScore } = this.props;
     const { difficulty } = questionAPI;
     const { timeLeft } = this.state;
+    console(timeLeft);
     const multiplyer = { hard: 3, medium: 2, easy: 1 }[difficulty];
     // const mult = multiplyers[difficulty];
     console.log(multiplyer);
@@ -78,6 +80,7 @@ class Question extends Component {
 
     return (
       <section>
+        <Timer timeOut={ this.onClickQuestion } />
         <h3 data-testid="question-category">{category}</h3>
         <p data-testid="question-text">{question}</p>
         { this.randomize(allAnswers) }

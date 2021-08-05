@@ -17,42 +17,55 @@ class Question extends Component {
         clicked: true,
       })
     };
+  randomize(array) {
+    for (let lastIndex = array.length - 1; lastIndex > 0; lastIndex -= 1) {
+      const randomIndex = Math.floor(Math.random() * lastIndex);
+      const temp = array[lastIndex];
+      array[lastIndex] = array[randomIndex];
+      array[randomIndex] = temp;
+    }
+    return (array);
+  }
 
   render() {
     const { questionAPI } = this.props;
+    const { clicked, disabled } = this.state;
     const {
       category,
       question,
       correct_answer: correctAnswer,
       incorrect_answers: incorrectAnswers,
     } = questionAPI;
+    const correct = (
+      <button
+        type="button"
+        data-testid="correct-answer"
+        key="4"
+        onClick={ this.onClickQuestion }
+        className={ clicked && 'correctAnswer' }
+        disabled={ clicked }  
+      >
+        {correctAnswer}
+      </button>);
+    const incorrect = incorrectAnswers.map((answer, index) => (
+      <button
+        type="button"
+        key={ index }
+        data-testid={ `wrong-answer-${index}` }
+        onClick={ this.onClickQuestion }
+        className={ clicked && 'incorrectAnswer' }
+        disabled={ clicked }
+      >
+        {answer}
+      </button>
+    ));
+    const allAnswers = [correct, ...incorrect];
 
-   
-
-    const { clicked } = this.state;
     return (
       <section>
         <h3 data-testid="question-category">{category}</h3>
         <p data-testid="question-text">{question}</p>
-        <button
-          type="button"
-          data-testid="correct-answer"
-          onClick={ this.onClickQuestion }
-          className={ clicked && 'correctAnswer' }
-          >
-            {correctAnswer}
-          </button>
-        {incorrectAnswers.map((answer, index) => (
-          <button
-            type="button"
-            key={ index }
-            data-testid={ `wrong-answer-${index}` }
-            onClick={ this.onClickQuestion }
-            className={ clicked && 'incorrectAnswer' }
-          >
-            {answer}
-          </button>
-        )) }
+        { this.randomize(allAnswers) }
       </section>
     );
   }

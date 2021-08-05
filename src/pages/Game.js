@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { fetchQuestions } from '../redux/actions';
+import { fetchQuestions, saveStorage } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
 // import Timer from '../components/Timer';
 
 class Game extends Component {
   componentDidMount() {
-    const { getToken, sendQuestions } = this.props;
+    const { getToken, sendQuestions, saveScore } = this.props;
     sendQuestions(getToken);
+    saveScore();
   }
 
   render() {
@@ -31,6 +32,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   sendQuestions: (token) => dispatch(fetchQuestions(token)),
+  saveScore: () => dispatch(saveStorage()),
 });
 
 Game.propTypes = ({

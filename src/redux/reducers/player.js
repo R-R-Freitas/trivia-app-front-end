@@ -3,6 +3,7 @@ import {
   UPDATE_EMAIL,
   INCREASE_ASSERTIONS,
   INCREASE_SCORE,
+  SAVE_STORAGE,
 } from '../actions';
 
 const INITIAL_STATE = {
@@ -22,6 +23,11 @@ const player = (state = INITIAL_STATE, action) => {
     return { ...state, assertions: state.assertions + 1 };
   case INCREASE_SCORE:
     return { ...state, score: state.score + action.payload };
+  case SAVE_STORAGE:
+  { const actualState = JSON.stringify({ player: state });
+    localStorage.setItem('state', actualState);
+    return state;
+  }
   default:
     return state;
   }

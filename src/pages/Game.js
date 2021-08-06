@@ -6,8 +6,6 @@ import { fetchQuestions, saveStorage } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
 
-// import Timer from '../components/Timer';
-
 class Game extends Component {
   constructor(props) {
     super(props);
@@ -56,7 +54,6 @@ class Game extends Component {
   }
 
   render() {
-    // const { getQuestions } = this.props;
     const { clicked } = this.state;
     return (
       <div>

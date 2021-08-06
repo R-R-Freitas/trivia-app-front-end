@@ -11,12 +11,12 @@ class Header extends Component {
   }
 
   render() {
-    const { name } = this.props;
+    const { name, score } = this.props;
     return (
       <div>
         <img src={ `https://www.gravatar.com/avatar/${this.hashCreate()}` } data-testid="header-profile-picture" alt="Foto do perfil" />
         <p data-testid="header-player-name">{ name }</p>
-        <p data-testid="header-score">0</p>
+        <p data-testid="header-score">{ score }</p>
       </div>
     );
   }
@@ -25,11 +25,13 @@ class Header extends Component {
 Header.propTypes = {
   email: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  score: PropTypes.number.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   email: state.player.gravatarEmail,
   name: state.player.name,
+  score: state.player.score,
 });
 
 export default connect(mapStateToProps)(Header);

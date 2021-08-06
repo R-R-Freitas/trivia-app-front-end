@@ -26,8 +26,6 @@ const player = (state = INITIAL_STATE, action) => {
   case SAVE_STORAGE:
   { const actualState = JSON.stringify({ player: state });
     localStorage.setItem('state', actualState);
-    const now = JSON.parse(localStorage.getItem('state'));
-    console.log(now);
     return state;
   }
   default:

@@ -17,7 +17,12 @@ class Question extends Component {
   }
 
   onClickQuestion(correct) {
-    const { questionAPI, setAssertion, setScore, getTimer, saveScore } = this.props;
+    const { questionAPI,
+      setAssertion,
+      setScore,
+      getTimer,
+      saveScore,
+      setVisibility } = this.props;
     const { difficulty } = questionAPI;
     const multiplier = { hard: 3, medium: 2, easy: 1 }[difficulty];
     const BASE_POINTS = 10;
@@ -33,6 +38,7 @@ class Question extends Component {
       setScore(0);
     }
     saveScore();
+    setVisibility(true);
   }
 
   randomize(array) {
@@ -64,7 +70,7 @@ class Question extends Component {
         data-testid="correct-answer"
         key="4"
         onClick={ () => this.onClickQuestion(true) }
-        className={ clicked && 'correctAnswer' }
+        className={ clicked ? 'correctAnswer' : 'alternative' }
         disabled={ clicked }
       >
         {correctAnswer}
@@ -75,7 +81,7 @@ class Question extends Component {
         key={ index }
         data-testid={ `wrong-answer-${index}` }
         onClick={ () => this.onClickQuestion(false) }
-        className={ clicked && 'incorrectAnswer' }
+        className={ clicked ? 'incorrectAnswer' : 'alternative' }
         disabled={ clicked }
       >
         {answer}
@@ -99,8 +105,9 @@ Question.propTypes = ({
   question: PropTypes.string,
   correctAnswer: PropTypes.string,
   incorrectAnswers: PropTypes.arrayOf(PropTypes.string),
-  setAssertion: PropTypes.func.isRequired,
-  setScore: PropTypes.func.isRequired,
+  setAssertion: PropTypes.func,
+  setScore: PropTypes.func,
+  setVisibility: PropTypes.func,
 }).isRequired;
 
 const mapStateToProps = (state) => ({

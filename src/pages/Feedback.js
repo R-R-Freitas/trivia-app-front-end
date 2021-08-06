@@ -15,12 +15,10 @@ class Feedback extends Component {
           { assertions >= minAssertions ? 'Mandou bem!' : 'Podia ser melhor...!' }
         </p>
         <p data-testid="feedback-total-score">
-          Score:
-          { score }
+          { parseInt(score, 10) }
         </p>
-        <p data-testid="feedback-total-questions">
-          Assertions:
-          { assertions }
+        <p data-testid="feedback-total-question">
+          { parseInt(assertions, 10) }
         </p>
         <Link to="/">
           <button type="button" data-testid="btn-play-again">

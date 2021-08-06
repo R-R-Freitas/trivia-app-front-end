@@ -10,10 +10,14 @@ class Question extends Component {
     super(props);
     this.state = {
       clicked: false,
-      randomized: false,
+      randomized: [],
     };
     this.onClickQuestion = this.onClickQuestion.bind(this);
     this.randomize = this.randomize.bind(this);
+  }
+
+  componentDidMount() {
+    this.randomize();
   }
 
   onClickQuestion(correct) {
@@ -41,23 +45,26 @@ class Question extends Component {
     setVisibility(true);
   }
 
-  randomize(array) {
-    const { randomized } = this.state;
-    if (!randomized) {
-      for (let lastIndex = array.length - 1; lastIndex > 0; lastIndex -= 1) {
-        const randomIndex = Math.floor(Math.random() * lastIndex);
-        const temp = array[lastIndex];
-        array[lastIndex] = array[randomIndex];
-        array[randomIndex] = temp;
-      }
-      this.setState({ randomized: true });
+  randomize() {
+    const { questionAPI: { type } } = this.props;
+    let answersOptions = 2;
+    if (type === 'multiple') {
+      answersOptions += 2;
     }
-    return (array);
+    const array = [...Array(answersOptions).keys()];
+    for (let lastIndex = array.length - 1; lastIndex >= 0; lastIndex -= 1) {
+      const randomIndex = Math.floor(Math.random() * (lastIndex + 1));
+      const temp = array[lastIndex];
+      array[lastIndex] = array[randomIndex];
+      array[randomIndex] = temp;
+    }
+    console.log(array);
+    this.setState({ randomized: [...array] });
   }
 
   render() {
     const { questionAPI } = this.props;
-    const { clicked } = this.state;
+    const { clicked, randomized } = this.state;
     const {
       category,
       question,
@@ -94,7 +101,7 @@ class Question extends Component {
         <Timer timeOut={ this.onClickQuestion } clicked={ clicked } />
         <h3 data-testid="question-category">{category}</h3>
         <p data-testid="question-text">{question}</p>
-        { this.randomize(allAnswers) }
+        { allAnswers.map((_answer, index, array) => array[randomized[index]]) }
       </section>
     );
   }

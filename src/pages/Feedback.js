@@ -5,6 +5,18 @@ import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 
 class Feedback extends Component {
+  componentDidMount() {
+    const { name, score, picture } = this.props;
+    const ranking = localStorage.getItem('ranking');
+    if (ranking) {
+      const playerRanking = JSON.parse(ranking);
+      const newRanking = [...playerRanking, { name, score, picture }];
+      localStorage.setItem('ranking', JSON.stringify(newRanking));
+    } else {
+      localStorage.setItem('ranking', JSON.stringify([{ name, score, picture }]));
+    }
+  }
+
   render() {
     const { assertions, score } = this.props;
     const minAssertions = 3;
@@ -38,11 +50,15 @@ class Feedback extends Component {
 Feedback.propTypes = {
   assertions: PropTypes.number.isRequired,
   score: PropTypes.number.isRequired,
+  name: PropTypes.string.isRequired,
+  picture: PropTypes.string.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   assertions: state.player.assertions,
   score: state.player.score,
+  name: state.player.name,
+  picture: state.player.gravatarUrl,
 });
 
 export default connect(mapStateToProps)(Feedback);

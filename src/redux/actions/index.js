@@ -6,8 +6,14 @@ export const INCREASE_ASSERTIONS = 'INCREASE_ASSERTIONS';
 export const INCREASE_SCORE = 'INCREASE_SCORE';
 export const GET_TIME = 'GET_TIME';
 export const SAVE_STORAGE = 'SAVE_STORAGE';
+export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL';
+export const CLEAR_SCORE = 'CLEAR_SCORE';
 
 const TRIVIA_API = 'https://opentdb.com/api_token.php?command=request';
+
+export const clearScore = () => ({
+  type: CLEAR_SCORE,
+});
 
 export const updateName = (payload) => ({
   type: UPDATE_NAME,
@@ -21,6 +27,11 @@ const updateToken = (payload) => ({
 
 export const updateEmail = (payload) => ({
   type: UPDATE_EMAIL,
+  payload,
+});
+
+export const saveImageUrl = (payload) => ({
+  type: SAVE_IMAGE_URL,
   payload,
 });
 

@@ -8,11 +8,17 @@ export const GET_TIME = 'GET_TIME';
 export const SAVE_STORAGE = 'SAVE_STORAGE';
 export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL';
 export const CLEAR_SCORE = 'CLEAR_SCORE';
+export const SAVE_CONFIG_OPTIONS = 'SAVE_CONFIG_OPTIONS';
 
 const TRIVIA_API = 'https://opentdb.com/api_token.php?command=request';
 
 export const clearScore = () => ({
   type: CLEAR_SCORE,
+});
+
+export const saveConfigOptions = (payload) => ({
+  type: SAVE_CONFIG_OPTIONS,
+  payload,
 });
 
 export const updateName = (payload) => ({
@@ -67,8 +73,10 @@ const updateQuestion = (payload) => ({
   payload,
 });
 
-export const fetchQuestions = (token) => (dispatch) => (
-  fetch(`https://opentdb.com/api.php?amount=5&token=${token}`)
+export const fetchQuestions = (
+  { getToken, category, difficulty, type },
+) => (dispatch) => (
+  fetch(`https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=${type}&token=${getToken}`)
     .then((data) => data.json())
     .then((response) => {
       dispatch(updateQuestion(response.results));

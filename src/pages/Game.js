@@ -18,8 +18,8 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    const { getToken, sendQuestions, saveScore } = this.props;
-    sendQuestions(getToken);
+    const { getToken, sendQuestions, saveScore, category, difficulty, type } = this.props;
+    sendQuestions({ getToken, category, difficulty, type });
     saveScore();
   }
 
@@ -78,6 +78,9 @@ class Game extends Component {
 const mapStateToProps = (state) => ({
   getToken: state.game.token,
   getQuestions: state.game.questions,
+  category: state.game.category,
+  difficulty: state.game.difficulty,
+  type: state.game.type,
 });
 
 const mapDispatchToProps = (dispatch) => ({

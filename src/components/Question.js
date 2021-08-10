@@ -58,7 +58,6 @@ class Question extends Component {
       array[lastIndex] = array[randomIndex];
       array[randomIndex] = temp;
     }
-    console.log(array);
     this.setState({ randomized: [...array] });
   }
 

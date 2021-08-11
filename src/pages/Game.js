@@ -5,6 +5,8 @@ import { Redirect } from 'react-router-dom';
 import { fetchQuestions, saveStorage } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
+import './Game.scss';
+import arrow from '../arrow.png';
 
 class Game extends Component {
   constructor(props) {
@@ -56,20 +58,23 @@ class Game extends Component {
   render() {
     const { clicked } = this.state;
     return (
-      <div>
+      <div className="game-page">
         <Header />
-        { this.renderQuestion() }
-        {
-          clicked && (
-            <button
-              type="button"
-              data-testid="btn-next"
-              onClick={ this.nextQuestion }
-              visibility={ clicked }
-            >
-              Próxima
-            </button>)
-        }
+        <div className="game">
+          { this.renderQuestion() }
+          {
+            clicked && (
+              <button
+                type="button"
+                data-testid="btn-next"
+                onClick={ this.nextQuestion }
+                visibility={ clicked }
+                className="btn-next"
+              >
+                <img src={ arrow } alt="imagem de flecha" className="btn-image" />
+              </button>)
+          }
+        </div>
       </div>
     );
   }

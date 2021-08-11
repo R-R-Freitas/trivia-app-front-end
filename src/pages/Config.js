@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { saveConfigOptions } from '../redux/actions';
+import './Config.scss';
 
 class Config extends Component {
   constructor() {
@@ -54,7 +55,7 @@ class Config extends Component {
     const dificulties = ['easy', 'medium', 'hard'];
     const { categories, category, difficulty, type } = this.state;
     return (
-      <div>
+      <div className="config-page">
         <h1 data-testid="settings-title">Config</h1>
         <label htmlFor="category-select">
           Categoria

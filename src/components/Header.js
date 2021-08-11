@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import md5 from 'crypto-js/md5';
 import { connect } from 'react-redux';
 import { saveImageUrl } from '../redux/actions';
+import './Header.scss';
 
 class Header extends Component {
   hashCreate() {
@@ -16,15 +17,21 @@ class Header extends Component {
   render() {
     const { name, score } = this.props;
     return (
-      <div>
+      <header>
         <img
           src={ this.hashCreate() }
           data-testid="header-profile-picture"
           alt="Foto do perfil"
         />
-        <p data-testid="header-player-name">{ name }</p>
-        <p data-testid="header-score">{ score }</p>
-      </div>
+        <p>
+          Jogador:
+          <span data-testid="header-player-name">{ name }</span>
+        </p>
+        <p>
+          Score:
+          <span data-testid="header-score">{ score }</span>
+        </p>
+      </header>
     );
   }
 }

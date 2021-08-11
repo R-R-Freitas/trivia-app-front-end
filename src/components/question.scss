@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+section{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.5vw;
+
+  .question-title{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    h3{
+      font-size: 2vw;
+    }
+  }
+}
+
+

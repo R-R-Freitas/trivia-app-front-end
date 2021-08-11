@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
+
+header{
+  display: flex;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px;
+  height: 10vh;
+  font-family: 'MedievalSharp', cursive;
+  font-size: 24px;
+  font-weight: 700;
+  background-color: rgba($color: #ffffff, $alpha: 0.4);
+  
+  img{
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.8);
+  }
+}

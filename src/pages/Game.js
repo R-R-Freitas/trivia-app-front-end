@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { fetchQuestions, saveStorage } from '../redux/actions';
+import { fetchQuestions, clearScore } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
+import './Game.scss';
+import arrow from '../arrow.png';
 
 class Game extends Component {
   constructor(props) {
@@ -18,9 +20,9 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    const { getToken, sendQuestions, saveScore, category, difficulty, type } = this.props;
+    const { getToken, sendQuestions, clrScore, category, difficulty, type } = this.props;
     sendQuestions({ getToken, category, difficulty, type });
-    saveScore();
+    clrScore();
   }
 
   setVisibility(clicked) {
@@ -56,20 +58,23 @@ class Game extends Component {
   render() {
     const { clicked } = this.state;
     return (
-      <div>
+      <div className="game-page">
         <Header />
-        { this.renderQuestion() }
-        {
-          clicked && (
-            <button
-              type="button"
-              data-testid="btn-next"
-              onClick={ this.nextQuestion }
-              visibility={ clicked }
-            >
-              Próxima
-            </button>)
-        }
+        <div className="game">
+          { this.renderQuestion() }
+          {
+            clicked && (
+              <button
+                type="button"
+                data-testid="btn-next"
+                onClick={ this.nextQuestion }
+                visibility={ clicked }
+                className="btn-next"
+              >
+                <img src={ arrow } alt="imagem de flecha" className="btn-image" />
+              </button>)
+          }
+        </div>
       </div>
     );
   }
@@ -85,7 +90,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   sendQuestions: (token) => dispatch(fetchQuestions(token)),
-  saveScore: () => dispatch(saveStorage()),
+  clrScore: () => dispatch(clearScore()),
 });
 
 Game.propTypes = ({

@@ -1,0 +1,74 @@
+.game-page{
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../stonewall.jpg');
+}
+
+.game{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../questions.png');
+  background-position: center;
+  background-size: 52%;
+  background-repeat: no-repeat;
+  height: 87vh;
+  gap: 6px;
+  
+  .answers{
+    width: 100%;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 10%;
+
+    .answer-option{
+      min-width: 40%;
+      max-width: 40%;
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      border: 1px solid black;
+      background-color: transparent;
+     
+      &:hover{
+        background-color: rgba($color: #ffffff, $alpha: 0.5);
+        cursor: pointer;
+      }
+    }
+  
+    .correctAnswer {
+      border: 3px solid rgb(6, 240, 15);
+      background-color: rgb(6, 240, 15);
+      color: black;
+
+      &:hover{
+        background-color: rgb(6, 240, 15);
+        cursor: not-allowed;
+      }
+    }
+    
+    .incorrectAnswer {
+      // background-color: red;
+      border: 3px solid red;
+
+      &:hover{
+        background-color: transparent;
+        cursor: not-allowed;
+      }
+    }
+  }
+
+    .btn-next{
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+      img{
+        width: 150px;
+      }
+    }
+}

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './question.css';
+import './question.scss';
 import { connect } from 'react-redux';
 import { increaseAssertions, increaseScore, saveStorage } from '../redux/actions';
 import Timer from './Timer';
@@ -76,7 +76,7 @@ class Question extends Component {
         data-testid="correct-answer"
         key="4"
         onClick={ () => this.onClickQuestion(true) }
-        className={ clicked ? 'correctAnswer' : 'alternative' }
+        className={ `answer-option ${clicked ? 'correctAnswer' : 'alternative'}` }
         disabled={ clicked }
       >
         {correctAnswer}
@@ -87,7 +87,7 @@ class Question extends Component {
         key={ index }
         data-testid={ `wrong-answer-${index}` }
         onClick={ () => this.onClickQuestion(false) }
-        className={ clicked ? 'incorrectAnswer' : 'alternative' }
+        className={ `answer-option ${clicked ? 'incorrectAnswer' : 'alternative'}` }
         disabled={ clicked }
       >
         {answer}
@@ -97,10 +97,14 @@ class Question extends Component {
 
     return (
       <section>
-        <Timer timeOut={ this.onClickQuestion } clicked={ clicked } />
-        <h3 data-testid="question-category">{category}</h3>
-        <p data-testid="question-text">{(question)}</p>
-        { allAnswers.map((_answer, index, array) => array[randomized[index]]) }
+        <div className="question-title">
+          <h3 data-testid="question-category">{category}</h3>
+          <Timer timeOut={ this.onClickQuestion } clicked={ clicked } />
+        </div>
+        <p data-testid="question-text">{question}</p>
+        <div className="answers">
+          { allAnswers.map((_answer, index, array) => array[randomized[index]]) }
+        </div>
       </section>
     );
   }

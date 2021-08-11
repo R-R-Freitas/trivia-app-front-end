@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { fetchToken, updateEmail, updateName } from '../redux/actions';
 import logo from '../trivia.png';
+import './Login.scss';
 
 class Login extends Component {
   constructor(props) {
@@ -46,38 +47,42 @@ class Login extends Component {
     return (
       <form>
         <img src={ logo } className="App-logo" alt="logo" />
-        <input
-          name="name"
-          placeholder="Nome"
-          data-testid="input-player-name"
-          value={ name }
-          onChange={ this.handleChange }
-        />
-        <input
-          name="email"
-          placeholder="Email"
-          data-testid="input-gravatar-email"
-          value={ email }
-          onChange={ this.handleChange }
-        />
-        <Link to="/game">
-          <button
-            type="button"
-            data-testid="btn-play"
-            disabled={ this.validateInputs() }
-            onClick={ this.handleClick }
-          >
-            Jogar
-          </button>
-        </Link>
-        <Link to="/config">
-          <button
-            type="button"
-            data-testid="btn-settings"
-          >
-            Configurações
-          </button>
-        </Link>
+        <fieldset className="container">
+          <input
+            name="name"
+            placeholder="Nome"
+            data-testid="input-player-name"
+            value={ name }
+            onChange={ this.handleChange }
+          />
+          <input
+            name="email"
+            placeholder="Email"
+            data-testid="input-gravatar-email"
+            value={ email }
+            onChange={ this.handleChange }
+          />
+          <Link to="/game">
+            <button
+              type="button"
+              data-testid="btn-play"
+              disabled={ this.validateInputs() }
+              className={ this.validateInputs() ? 'btn-disabled' : 'btn-login' }
+              onClick={ this.handleClick }
+            >
+              Jogar
+            </button>
+          </Link>
+          <Link to="/config">
+            <button
+              type="button"
+              data-testid="btn-settings"
+              className="btn-settings"
+            >
+              Configurações
+            </button>
+          </Link>
+        </fieldset>
       </form>);
   }
 }

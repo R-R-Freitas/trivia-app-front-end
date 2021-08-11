@@ -13,7 +13,8 @@
     "react-scripts": "3.3.0",
     "redux": "^4.1.1",
     "redux-devtools-extension": "^2.13.9",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "utf8": "^3.0.0"
   },
   "scripts": {
     "cy": "cypress run",
@@ -60,6 +61,7 @@
     "mochawesome": "^6.1.1",
     "mochawesome-merge": "^4.0.3",
     "mochawesome-report-generator": "^5.1.0",
+    "sass": "^1.37.5",
     "stylelint": "^13.8.0",
     "stylelint-config-standard": "20.0.0",
     "stylelint-order": "^4.1.0"

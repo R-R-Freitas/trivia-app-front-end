@@ -99,7 +99,7 @@ class Question extends Component {
       <section>
         <Timer timeOut={ this.onClickQuestion } clicked={ clicked } />
         <h3 data-testid="question-category">{category}</h3>
-        <p data-testid="question-text">{question}</p>
+        <p data-testid="question-text">{(question)}</p>
         { allAnswers.map((_answer, index, array) => array[randomized[index]]) }
       </section>
     );

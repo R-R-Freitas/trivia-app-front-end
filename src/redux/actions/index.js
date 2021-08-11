@@ -76,7 +76,7 @@ const updateQuestion = (payload) => ({
 export const fetchQuestions = (
   { getToken, category, difficulty, type },
 ) => (dispatch) => (
-  fetch(`https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=${type}&token=${getToken}`)
+  fetch(`https://opentdb.com/api.php?amount=5&category=${category}&difficulty=${difficulty}&type=${type}&token=${getToken}&encode=base64`)
     .then((data) => data.json())
     .then((response) => {
       dispatch(updateQuestion(response.results));

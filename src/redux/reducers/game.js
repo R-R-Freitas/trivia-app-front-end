@@ -17,8 +17,20 @@ const game = (state = INITIAL_STATE, action) => {
   }
   case UPDATE_TOKEN:
     return { ...state, token: action.payload };
-  case UPDATE_QUESTION:
-    return { ...state, questions: [...action.payload] };
+  case UPDATE_QUESTION: {
+    const questionsList = action.payload.map((thisQuestion) => (
+      {
+        ...thisQuestion,
+        question: window.atob(thisQuestion.question),
+        category: window.atob(thisQuestion.category),
+        type: window.atob(thisQuestion.type),
+        difficulty: window.atob(thisQuestion.difficulty),
+        correct_answer: window.atob(thisQuestion.correct_answer),
+        incorrect_answers:
+          thisQuestion.incorrect_answers.map((answer) => window.atob(answer)),
+      }));
+    return { ...state, questions: questionsList };
+  }
   case GET_TIME:
     return { ...state, timer: action.payload };
   default:

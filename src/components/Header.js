@@ -24,11 +24,11 @@ class Header extends Component {
           alt="Foto do perfil"
         />
         <p>
-          Jogador:
+          {'Jogador: '}
           <span data-testid="header-player-name">{ name }</span>
         </p>
         <p>
-          Score:
+          {'Score: '}
           <span data-testid="header-score">{ score }</span>
         </p>
       </header>

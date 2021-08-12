@@ -1,11 +1,11 @@
 .game-page {
-  background-image: url('../stonewall.jpg');
+  background-image: url('../images/stonewall2.jpg');
   height: 100vh;
   width: 100vw; }
 
 .game {
   align-items: center;
-  background-image: url('../questions.png');
+  background-image: url('../images/questions.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 52%;

@@ -6,7 +6,7 @@ import { fetchQuestions, clearScore, saveStorage } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
 import './Game.css';
-import arrow from '../arrow.png';
+import arrow from '../images/arrow.png';
 
 class Game extends Component {
   constructor(props) {

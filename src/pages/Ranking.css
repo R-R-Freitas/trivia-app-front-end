@@ -2,7 +2,7 @@
 
 body {
   align-items: center;
-  background-image: url('../stonewall2.jpg');
+  background-image: url('../images/stonewall2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -14,7 +14,7 @@ table {
 
 .ranking-container {
   align-items: center;
-  background-image: url('../ranking.png');
+  background-image: url('../images/ranking.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 150%;
@@ -34,6 +34,21 @@ table {
 
 .ranking-container .ranking h1 {
   font-size: 40px; }
+
+.table-container::-webkit-scrollbar {
+  width: 12px;               /* width of the entire scrollbar */
+}
+
+.table-container::-webkit-scrollbar-track {
+  background: #aa510e;        /* color of the tracking area */
+  border-radius: 20px;
+}
+
+.table-container::-webkit-scrollbar-thumb {
+  background-color: black;    /* color of the scroll thumb */
+  border: 3px solid #aa510e;  /* creates padding around scroll thumb */
+  border-radius: 20px;       /* roundness of the scroll thumb */
+}
 
 .ranking-container .ranking .table-container {
   font-size: 20px;

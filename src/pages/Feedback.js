@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { clearQuestions } from '../redux/actions';
+import './Feedback.css';
 
 class Feedback extends Component {
   componentDidMount() {
@@ -23,27 +24,35 @@ class Feedback extends Component {
     const { assertions, score } = this.props;
     const minAssertions = 3;
     return (
-      <div>
+      <div className="feedback-page">
         <Header />
-        <p data-testid="feedback-text">
-          { assertions >= minAssertions ? 'Mandou bem!' : 'Podia ser melhor...!' }
-        </p>
-        <p data-testid="feedback-total-score">
-          { parseInt(score, 10) }
-        </p>
-        <p data-testid="feedback-total-question">
-          { parseInt(assertions, 10) }
-        </p>
-        <Link to="/">
-          <button type="button" data-testid="btn-play-again">
-            Jogar novamente
-          </button>
-        </Link>
-        <Link to="/ranking">
-          <button type="button" data-testid="btn-ranking">
-            Ver Ranking
-          </button>
-        </Link>
+        <div className="feedback-container">
+          <h3 data-testid="feedback-text">
+            { assertions >= minAssertions ? 'Mandou bem!' : 'Podia ser melhor...!' }
+          </h3>
+          <p>
+            {'Acertos: '}
+            <span data-testid="feedback-total-question">
+              { parseInt(assertions, 10) }
+            </span>
+          </p>
+          <p>
+            {'Score: '}
+            <span data-testid="feedback-total-score">
+              { parseInt(score, 10) }
+            </span>
+          </p>
+          <Link to="/">
+            <button type="button" data-testid="btn-play-again">
+              Jogar novamente
+            </button>
+          </Link>
+          <Link to="/ranking">
+            <button type="button" data-testid="btn-ranking">
+              Ver Ranking
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }

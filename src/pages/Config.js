@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { saveConfigOptions } from '../redux/actions';
 import './Config.css';
-import logo from '../trivia.png';
+import logo from '../images/trivia.png';
 
 class Config extends Component {
   constructor() {

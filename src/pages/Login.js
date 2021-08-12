@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { fetchToken, updateEmail, updateName } from '../redux/actions';
-import logo from '../trivia.png';
+import logo from '../images/trivia.png';
 import './Login.css';
 
 class Login extends Component {

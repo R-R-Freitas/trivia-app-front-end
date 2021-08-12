@@ -20,7 +20,7 @@
 .config-page {
   align-items: center;
   background-color: black;
-  background-image: url('../questionMark.png');
+  background-image: url('../images/questionMark.png');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;

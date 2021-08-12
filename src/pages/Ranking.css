@@ -2,7 +2,7 @@
 
 body {
   align-items: center;
-  background-image: url('../stonewall2.jpg');
+  background-image: url('../images/stonewall2.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -14,7 +14,7 @@ table {
 
 .ranking-container {
   align-items: center;
-  background-image: url('../ranking.png');
+  background-image: url('../images/ranking.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: 150%;

@@ -29,7 +29,7 @@ form {
   width: 100vw; }
 
 form img {
-  animation: triviaAnimation 2s infinite;
+  animation: triviaAnimation 4s infinite;
   animation-timing-function: linear;
   transform-origin: center;
   width: 30%; }

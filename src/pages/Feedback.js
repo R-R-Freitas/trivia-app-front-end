@@ -3,10 +3,13 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { clearQuestions } from '../redux/actions';
+import './Feedback.css';
 
 class Feedback extends Component {
   componentDidMount() {
-    const { name, score, picture } = this.props;
+    const { name, score, picture, resetQuestions } = this.props;
+    resetQuestions();
     const ranking = localStorage.getItem('ranking');
     if (ranking) {
       const playerRanking = JSON.parse(ranking);
@@ -21,27 +24,35 @@ class Feedback extends Component {
     const { assertions, score } = this.props;
     const minAssertions = 3;
     return (
-      <div>
+      <div className="feedback-page">
         <Header />
-        <p data-testid="feedback-text">
-          { assertions >= minAssertions ? 'Mandou bem!' : 'Podia ser melhor...!' }
-        </p>
-        <p data-testid="feedback-total-score">
-          { parseInt(score, 10) }
-        </p>
-        <p data-testid="feedback-total-question">
-          { parseInt(assertions, 10) }
-        </p>
-        <Link to="/">
-          <button type="button" data-testid="btn-play-again">
-            Jogar novamente
-          </button>
-        </Link>
-        <Link to="/ranking">
-          <button type="button" data-testid="btn-ranking">
-            Ver Ranking
-          </button>
-        </Link>
+        <div className="feedback-container">
+          <h3 data-testid="feedback-text">
+            { assertions >= minAssertions ? 'Mandou bem!' : 'Podia ser melhor...!' }
+          </h3>
+          <p>
+            {'Acertos: '}
+            <span data-testid="feedback-total-question">
+              { parseInt(assertions, 10) }
+            </span>
+          </p>
+          <p>
+            {'Score: '}
+            <span data-testid="feedback-total-score">
+              { parseInt(score, 10) }
+            </span>
+          </p>
+          <Link to="/">
+            <button type="button" data-testid="btn-play-again">
+              Jogar novamente
+            </button>
+          </Link>
+          <Link to="/ranking">
+            <button type="button" data-testid="btn-ranking">
+              Ver Ranking
+            </button>
+          </Link>
+        </div>
       </div>
     );
   }
@@ -52,6 +63,7 @@ Feedback.propTypes = {
   score: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  resetQuestions: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -61,4 +73,8 @@ const mapStateToProps = (state) => ({
   picture: state.player.gravatarUrl,
 });
 
-export default connect(mapStateToProps)(Feedback);
+const mapDispatchToProps = (dispatch) => ({
+  resetQuestions: () => dispatch(clearQuestions()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feedback);

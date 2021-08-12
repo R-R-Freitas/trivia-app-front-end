@@ -1,0 +1,85 @@
+@keyframes triviaAnimation {
+  0% {
+    transform: rotate(20deg) translate(100px , -15px); }
+
+  25% {
+    transform: rotate(5deg) translate (10px , -45px); }
+
+  50% {
+    transform: rotate(-20deg) translate(-100px , -15px); }
+
+  75% {
+    transform: rotate(-5deg) translate (-10px , -45px); }
+  
+  100% {
+    transform: rotate(20deg) translate(100px , -15px); } }
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  gap: 16px;
+  background-color: black;
+  background-image: url("../images/questionMark.png");
+  background-size: cover;
+  background-repeat: no-repeat; }
+  form img {
+    width: 30%;
+    animation: triviaAnimation 2s infinite;
+    animation-timing-function: linear;
+    transform-origin: center; }
+  form input {
+    padding: 5px;
+    border: none;
+    border-bottom: 1px solid green; }
+  form .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 100px;
+    border: 0px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 10px 10px 8px black;
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.6); }
+    form .container a {
+      width: 100%; }
+      form .container a button {
+        width: 100%; }
+    form .container .btn-disabled {
+      padding: 10px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 16px;
+      border: 1px solid green;
+      background-color: white;
+      color: green;
+      opacity: 0.4; }
+      form .container .btn-disabled:hover {
+        cursor: not-allowed; }
+    form .container .btn-login {
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      border: 1px solid white;
+      background-color: green;
+      color: white; }
+      form .container .btn-login:hover {
+        cursor: pointer;
+        opacity: 0.8; }
+    form .container .btn-settings {
+      padding: 10px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 700;
+      border: 1px solid white;
+      background-color: green;
+      color: white; }
+      form .container .btn-settings:hover {
+        opacity: 0.8;
+        cursor: pointer; }
+
+/*# sourceMappingURL=Login.scss.map */

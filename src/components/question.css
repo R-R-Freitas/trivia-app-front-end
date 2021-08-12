@@ -1,7 +1,20 @@
-.correctAnswer {
-  border: 3px solid rgb(6, 240, 15);
-}
+@import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap') ;
 
-.incorrectAnswer {
-  border: 3px solid red;
-}
+section {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  font-family: MedievalSharp , cursive;
+  font-size: 1.5vw;
+  justify-content: center;
+  width: 30%; }
+
+section .question-title {
+  align-items: center;
+  display: flex;
+  gap: 15px; }
+
+section .question-title h3 {
+  font-size: 2vw; }
+
+/*# sourceMappingURL=question.css.map */

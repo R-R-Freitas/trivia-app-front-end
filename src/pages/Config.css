@@ -3,13 +3,19 @@
 @keyframes triviaAnimation {
 
   0% {
-    transform: rotate(20deg); }
+    transform: rotate(20deg) translate(100px, -15px); }
+
+  25% {
+    transform: rotate(0) translate(0, -45px); }
 
   50% {
-    transform: rotate(-20deg); }
+    transform: rotate(-20deg) translate(-100px, -15px); }
+
+  75% {
+    transform: rotate(0) translate(0, -45px); }
 
   100% {
-    transform: rotate(20deg); } }
+    transform: rotate(20deg) translate(100px, -15px); } }
 
 .config-page {
   align-items: center;
@@ -28,6 +34,7 @@
 
 .config-page img {
   animation: triviaAnimation 2s infinite;
+  animation-timing-function: linear;
   width: 30%; }
 
 .config-page .container {

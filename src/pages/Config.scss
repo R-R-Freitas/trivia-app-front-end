@@ -18,6 +18,8 @@
   img {
     width: 30%;
     animation: triviaAnimation 2s infinite;
+    animation-timing-function: linear;
+    transform-origin: center;
   }
 
   .container{

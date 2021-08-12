@@ -1,10 +1,18 @@
 @keyframes triviaAnimation {
   0% {
-    transform: rotate(20deg); }
+    transform: rotate(20deg) translate(100px , -15px); }
+
+  25% {
+    transform: rotate(5deg) translate (10px , -45px); }
+
   50% {
-    transform: rotate(-20deg); }
+    transform: rotate(-20deg) translate(-100px , -15px); }
+
+  75% {
+    transform: rotate(-5deg) translate (-10px , -45px); }
+  
   100% {
-    transform: rotate(20deg); } }
+    transform: rotate(20deg) translate(100px , -15px); } }
 form {
   display: flex;
   flex-direction: column;
@@ -20,6 +28,7 @@ form {
   form img {
     width: 30%;
     animation: triviaAnimation 2s infinite;
+    animation-timing-function: linear;
     transform-origin: center; }
   form input {
     padding: 5px;

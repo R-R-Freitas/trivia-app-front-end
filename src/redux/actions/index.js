@@ -8,12 +8,17 @@ export const GET_TIME = 'GET_TIME';
 export const SAVE_STORAGE = 'SAVE_STORAGE';
 export const SAVE_IMAGE_URL = 'SAVE_IMAGE_URL';
 export const CLEAR_SCORE = 'CLEAR_SCORE';
+export const CLEAR_QUESTIONS = 'CLEAR_QUESTIONS';
 export const SAVE_CONFIG_OPTIONS = 'SAVE_CONFIG_OPTIONS';
 
 const TRIVIA_API = 'https://opentdb.com/api_token.php?command=request';
 
 export const clearScore = () => ({
   type: CLEAR_SCORE,
+});
+
+export const clearQuestions = () => ({
+  type: CLEAR_QUESTIONS,
 });
 
 export const saveConfigOptions = (payload) => ({

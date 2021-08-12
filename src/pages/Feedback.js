@@ -3,10 +3,12 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import { clearQuestions } from '../redux/actions';
 
 class Feedback extends Component {
   componentDidMount() {
-    const { name, score, picture } = this.props;
+    const { name, score, picture, resetQuestions } = this.props;
+    resetQuestions();
     const ranking = localStorage.getItem('ranking');
     if (ranking) {
       const playerRanking = JSON.parse(ranking);
@@ -52,6 +54,7 @@ Feedback.propTypes = {
   score: PropTypes.number.isRequired,
   name: PropTypes.string.isRequired,
   picture: PropTypes.string.isRequired,
+  resetQuestions: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -61,4 +64,8 @@ const mapStateToProps = (state) => ({
   picture: state.player.gravatarUrl,
 });
 
-export default connect(mapStateToProps)(Feedback);
+const mapDispatchToProps = (dispatch) => ({
+  resetQuestions: () => dispatch(clearQuestions()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Feedback);

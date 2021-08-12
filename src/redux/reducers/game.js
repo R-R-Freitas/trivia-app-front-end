@@ -1,4 +1,5 @@
-import { UPDATE_TOKEN, UPDATE_QUESTION, GET_TIME, SAVE_CONFIG_OPTIONS } from '../actions';
+import { UPDATE_TOKEN, UPDATE_QUESTION, GET_TIME,
+  SAVE_CONFIG_OPTIONS, CLEAR_QUESTIONS } from '../actions';
 
 const INITIAL_STATE = {
   token: '',
@@ -33,6 +34,8 @@ const game = (state = INITIAL_STATE, action) => {
   }
   case GET_TIME:
     return { ...state, timer: action.payload };
+  case CLEAR_QUESTIONS:
+    return { ...state, questions: [] };
   default:
     return state;
   }

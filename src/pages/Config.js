@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { saveConfigOptions } from '../redux/actions';
 import './Config.scss';
+import logo from '../trivia.png';
 
 class Config extends Component {
   constructor() {
@@ -43,6 +44,7 @@ class Config extends Component {
       <Link to="/">
         <button
           type="button"
+          className="btn-config"
           onClick={ () => this.handleClick(category, difficulty, type) }
         >
           Salvar
@@ -51,54 +53,77 @@ class Config extends Component {
     );
   }
 
-  render() {
+  renderCategoryList() {
+    const { categories, category } = this.state;
+    return (
+      <label htmlFor="category-select">
+        Categoria
+        <select
+          id="category-select"
+          value={ category }
+          name="category"
+          onChange={ this.handleChange }
+        >
+          <option value="">Qualquer</option>
+          {categories.map(({ id, name }) => (
+            <option key={ id } value={ id }>{ name }</option>
+          ))}
+        </select>
+      </label>
+    );
+  }
+
+  renderDifficulty() {
     const dificulties = ['easy', 'medium', 'hard'];
-    const { categories, category, difficulty, type } = this.state;
+    const { difficulty } = this.state;
+    return (
+      <label htmlFor="dificulty-select">
+        Dificuldade
+        <select
+          id="dificulty-select"
+          value={ difficulty }
+          name="difficulty"
+          onChange={ this.handleChange }
+        >
+          <option value="">Todas</option>
+          {dificulties.map((dif, index) => (
+            <option key={ index } value={ dif }>{ dif }</option>
+          ))}
+        </select>
+      </label>
+    );
+  }
+
+  renderTypeList() {
+    const { type } = this.state;
+    return (
+      <label htmlFor="type-select">
+        Tipo de perguntas
+        <select
+          id="type-select"
+          value={ type }
+          name="type"
+          onChange={ this.handleChange }
+        >
+          <option value="">Todas</option>
+          <option value="multiple">Múltipla Escolha</option>
+          <option value="boolean">V ou F</option>
+        </select>
+      </label>
+    );
+  }
+
+  render() {
     return (
       <div className="config-page">
-        <h1 data-testid="settings-title">Config</h1>
-        <label htmlFor="category-select">
-          Categoria
-          <select
-            id="category-select"
-            value={ category }
-            name="category"
-            onChange={ this.handleChange }
-          >
-            <option value="">Qualquer</option>
-            {categories.map(({ id, name }) => (
-              <option key={ id } value={ id }>{ name }</option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="dificulty-select">
-          Dificuldade
-          <select
-            id="dificulty-select"
-            value={ difficulty }
-            name="difficulty"
-            onChange={ this.handleChange }
-          >
-            <option value="">Todas</option>
-            {dificulties.map((dif, index) => (
-              <option key={ index } value={ dif }>{ dif }</option>
-            ))}
-          </select>
-        </label>
-        <label htmlFor="type-select">
-          Tipo de perguntas
-          <select
-            id="type-select"
-            value={ type }
-            name="type"
-            onChange={ this.handleChange }
-          >
-            <option value="">Todas</option>
-            <option value="multiple">Múltipla Escolha</option>
-            <option value="boolean">V ou F</option>
-          </select>
-        </label>
-        { this.renderButton() }
+        <img src={ logo } className="App-logo" alt="logo" />
+        <div className="container">
+          <h1 data-testid="settings-title">Configurações</h1>
+          { this.renderCategoryList() }
+          { this.renderDifficulty() }
+          { this.renderTypeList() }
+          { this.renderButton() }
+        </div>
       </div>);
   }
 }

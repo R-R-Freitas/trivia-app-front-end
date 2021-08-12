@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import { fetchQuestions, clearScore } from '../redux/actions';
+import { fetchQuestions, clearScore, saveStorage } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
-import './Game.scss';
+import './Game.css';
 import arrow from '../arrow.png';
 
 class Game extends Component {
@@ -20,9 +20,12 @@ class Game extends Component {
   }
 
   componentDidMount() {
-    const { getToken, sendQuestions, clrScore, category, difficulty, type } = this.props;
+    const {
+      getToken, sendQuestions, clrScore, saveScore, category, difficulty, type,
+    } = this.props;
     sendQuestions({ getToken, category, difficulty, type });
     clrScore();
+    saveScore();
   }
 
   setVisibility(clicked) {
@@ -91,11 +94,14 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   sendQuestions: (token) => dispatch(fetchQuestions(token)),
   clrScore: () => dispatch(clearScore()),
+  saveScore: () => dispatch(saveStorage()),
 });
 
 Game.propTypes = ({
   getToken: PropTypes.string,
   sendQuestions: PropTypes.func,
+  saveScore: PropTypes.func,
+  clrScore: PropTypes.func,
 }).isRequired;
 
 export default connect(mapStateToProps, mapDispatchToProps)(Game);

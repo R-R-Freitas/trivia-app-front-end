@@ -1,15 +1,10 @@
 @keyframes triviaAnimation {
-  0%{
-    transform: translateX(50px);
-  }
-  50%{
-    transform: translateX(-50px);
-  }
-  100%{
-    transform: translateX(50px);
-  }
-}
-
+  0% {
+    transform: rotate(20deg); }
+  50% {
+    transform: rotate(-20deg); }
+  100% {
+    transform: rotate(20deg); } }
 form {
   display: flex;
   flex-direction: column;
@@ -19,39 +14,32 @@ form {
   width: 100vw;
   gap: 16px;
   background-color: black;
-  background-image: url('../questionMark.png');
+  background-image: url("../questionMark.png");
   background-size: cover;
-  background-repeat: no-repeat;
-
-  img {
+  background-repeat: no-repeat; }
+  form img {
     width: 30%;
     animation: triviaAnimation 2s infinite;
-  }
-
-  input {
+    transform-origin: center; }
+  form input {
     padding: 5px;
     border: none;
-    border-bottom: 1px solid green;
-  }
-
-  .container{
+    border-bottom: 1px solid green; }
+  form .container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 16px;
     padding: 100px;
-    border: 0px solid rgba($color: #ffffff, $alpha: 0.6);
-    box-shadow: 10px 10px 8px rgba(0, 0, 0, 1);
+    border: 0px solid rgba(255, 255, 255, 0.6);
+    box-shadow: 10px 10px 8px black;
     border-radius: 12px;
-    background-color: rgba($color: #ffffff, $alpha: 0.6);
-    a {
-      width: 100%;
-      button {
-        width: 100%;
-      }
-    }
-
-    .btn-disabled{
+    background-color: rgba(255, 255, 255, 0.6); }
+    form .container a {
+      width: 100%; }
+      form .container a button {
+        width: 100%; }
+    form .container .btn-disabled {
       padding: 10px;
       border-radius: 8px;
       font-weight: 700;
@@ -59,41 +47,30 @@ form {
       border: 1px solid green;
       background-color: white;
       color: green;
-      opacity: 0.4;
-
-      &:hover{
-        cursor: not-allowed;
-      }
-    }
-
-    .btn-login{
+      opacity: 0.4; }
+      form .container .btn-disabled:hover {
+        cursor: not-allowed; }
+    form .container .btn-login {
       padding: 10px;
       border-radius: 8px;
       font-size: 16px;
       font-weight: 700;
       border: 1px solid white;
       background-color: green;
-      color: white;
-
-      &:hover{
+      color: white; }
+      form .container .btn-login:hover {
         cursor: pointer;
-        opacity: 0.8;
-      }
-    }
-
-    .btn-settings{
+        opacity: 0.8; }
+    form .container .btn-settings {
       padding: 10px;
       border-radius: 8px;
       font-size: 16px;
       font-weight: 700;
       border: 1px solid white;
       background-color: green;
-      color: white;
-
-      &:hover{
+      color: white; }
+      form .container .btn-settings:hover {
         opacity: 0.8;
-        cursor: pointer;
-      }
-    }
-  }
-}
+        cursor: pointer; }
+
+/*# sourceMappingURL=Login.scss.map */

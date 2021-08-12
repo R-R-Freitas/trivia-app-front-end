@@ -1,0 +1,64 @@
+.game-page {
+  background-image: url('../stonewall.jpg');
+  height: 100vh;
+  width: 100vw; }
+
+.game {
+  align-items: center;
+  background-image: url('../questions.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 52%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  height: 87vh;
+  justify-content: center; }
+
+.game .answers {
+  align-items: stretch;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 20px;
+  justify-content: space-around;
+  width: 100%; }
+
+.game .answers .answer-option {
+  background-color: transparent;
+  border: 1px solid black;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  max-width: 40%;
+  min-width: 40%;
+  padding: 10px; }
+
+.game .answers .answer-option:hover {
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer; }
+
+.game .answers .correctAnswer {
+  background-color: #06f00f;
+  border: 3px solid #06f00f;
+  color: black; }
+
+.game .answers .correctAnswer:hover {
+  background-color: #06f00f;
+  cursor: not-allowed; }
+
+.game .answers .incorrectAnswer {
+  border: 3px solid red; }
+
+.game .answers .incorrectAnswer:hover {
+  background-color: transparent;
+  cursor: not-allowed; }
+
+.game .btn-next {
+  background-color: transparent;
+  border: none;
+  cursor: pointer; }
+
+.game .btn-next img {
+  width: 150px; }
+
+/*# sourceMappingURL=Game.css.map */

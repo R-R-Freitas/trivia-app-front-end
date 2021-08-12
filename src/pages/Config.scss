@@ -1,17 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=MedievalSharp&display=swap');
 
-@keyframes triviaAnimation {
-  0%{
-    transform: translateX(50px);
-  }
-  50%{
-    transform: translateX(-50px);
-  }
-  100%{
-    transform: translateX(50px);
-  }
-}
-
 .config-page{
   font-family: 'MedievalSharp', cursive;
   font-size: 20px;

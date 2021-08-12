@@ -1,0 +1,91 @@
+@keyframes triviaAnimation {
+
+  0% {
+    transform: rotate(20deg); }
+
+  50% {
+    transform: rotate(-20deg); }
+
+  100% {
+    transform: rotate(20deg); } }
+
+form {
+  align-items: center;
+  background-color: black;
+  background-image: url('../questionMark.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw; }
+
+form img {
+  animation: triviaAnimation 2s infinite;
+  transform-origin: center;
+  width: 30%; }
+
+form input {
+  border: none;
+  border-bottom: 1px solid green;
+  padding: 5px; }
+
+form .container {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  border: 0 solid rgba(255, 255, 255, 0.6);
+  border-radius: 12px;
+  box-shadow: 10px 10px 8px black;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 100px; }
+
+form .container a {
+  width: 100%; }
+
+form .container a button {
+  width: 100%; }
+
+form .container .btn-disabled {
+  background-color: white;
+  border: 1px solid green;
+  border-radius: 8px;
+  color: green;
+  font-size: 16px;
+  font-weight: 700;
+  opacity: 0.4;
+  padding: 10px; }
+
+form .container .btn-disabled:hover {
+  cursor: not-allowed; }
+
+form .container .btn-login {
+  background-color: green;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px; }
+
+form .container .btn-login:hover {
+  cursor: pointer;
+  opacity: 0.8; }
+
+form .container .btn-settings {
+  background-color: green;
+  border: 1px solid white;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px; }
+
+form .container .btn-settings:hover {
+  cursor: pointer;
+  opacity: 0.8; }
+
+/*# sourceMappingURL=Login.css.map */

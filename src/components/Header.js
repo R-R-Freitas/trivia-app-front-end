@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import md5 from 'crypto-js/md5';
 import { connect } from 'react-redux';
 import { saveImageUrl } from '../redux/actions';
-import './Header.scss';
+import './Header.css';
 
 class Header extends Component {
   hashCreate() {

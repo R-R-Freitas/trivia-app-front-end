@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './question.scss';
+import './question.css';
 import { connect } from 'react-redux';
 import { increaseAssertions, increaseScore, saveStorage } from '../redux/actions';
 import Timer from './Timer';

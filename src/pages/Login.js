@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { fetchToken, updateEmail, updateName } from '../redux/actions';
 import logo from '../trivia.png';
-import './Login.scss';
+import './Login.css';
 
 class Login extends Component {
   constructor(props) {

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { saveConfigOptions } from '../redux/actions';
-import './Config.scss';
+import './Config.css';
 import logo from '../trivia.png';
 
 class Config extends Component {

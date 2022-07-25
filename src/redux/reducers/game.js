@@ -10,7 +10,7 @@ const INITIAL_STATE = {
   type: '',
 };
 
-const game = (state = INITIAL_STATE, action) => {
+const game = (state = INITIAL_STATE, action = {}) => {
   switch (action.type) {
   case SAVE_CONFIG_OPTIONS: {
     const { category, difficulty, type } = action.payload;

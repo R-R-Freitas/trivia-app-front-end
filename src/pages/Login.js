@@ -35,10 +35,7 @@ class Login extends Component {
     const { name, email } = this.state;
     const validEmail = /^[a-z0-9_.-]+@[a-z]+\.[a-z]{2,3}(?:\.[a-z]{2})?$/;
     const validName = 1;
-    if (validEmail.test(email) && name.length >= validName) {
-      return false;
-    }
-    return true;
+    return !(validEmail.test(email) && name.length >= validName);
   }
 
   render() {
@@ -83,7 +80,8 @@ class Login extends Component {
             </button>
           </Link>
         </fieldset>
-      </form>);
+      </form>
+    );
   }
 }
 

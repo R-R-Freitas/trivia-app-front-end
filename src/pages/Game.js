@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Redirect } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { fetchQuestions, clearScore, saveStorage } from '../redux/actions';
 import Question from '../components/Question';
 import Header from '../components/Header';
@@ -55,7 +55,7 @@ class Game extends Component {
           />))[questionNumber]
       );
     }
-    return <Redirect to="/feedback" />;
+    return <Navigate to="/feedback" />;
   }
 
   render() {

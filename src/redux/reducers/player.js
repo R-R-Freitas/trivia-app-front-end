@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   gravatarUrl: '',
 };
 
-const player = (state = INITIAL_STATE, action) => {
+const player = (state = INITIAL_STATE, action = {}) => {
   switch (action.type) {
   case CLEAR_SCORE:
     return { ...state, score: 0, assertions: 0 };

@@ -124,7 +124,8 @@ class Config extends Component {
           { this.renderTypeList() }
           { this.renderButton() }
         </div>
-      </div>);
+      </div>
+    );
   }
 }
 

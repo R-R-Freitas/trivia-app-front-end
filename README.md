@@ -28,3 +28,11 @@ Tecnologias e ferramentas utilizadas:
 
 -Foram utilizados ESLint e StyleLint para garantir a legibilidade do código. 
 
+Para rodar o app, basta inserir os seguintes comandos no terminal, na pasta onde deseja instalá-lo:
+
+```
+git clone git@github.com:R-R-Freitas/trivia-app-front-end.git
+cd trivia-app-front-end
+npm install
+npm start
+```

@@ -1,18 +1,21 @@
 #### Este projeto foi desenvolvido como parte do curso de Desenvolvimento Web Full-Stack da Trybe, no módulo Front-End, entre os dias 4 e 10 de Agosto de 2021.
 
-#### Equipe: 
-Rodrigo Rafael Freitas (https://github.com/R-R-Freitas)
-Eric Faria (https://github.com/eric-faria)
-Caio Veloso (https://github.com/Caio-Veloso)
-Kevin Oliveira (https://github.com/Kevin-Ol)
-Johann Munzlinger (https://github.com/jmlinger)
+#### Equipe:  
+Rodrigo Rafael Freitas (https://github.com/R-R-Freitas)  
+Eric Faria (https://github.com/eric-faria)  
+Caio Veloso (https://github.com/Caio-Veloso)  
+Kevin Oliveira (https://github.com/Kevin-Ol)  
+Johann Munzlinger (https://github.com/jmlinger)  
 
-## O que foi desenvolvido
+## O que foi desenvolvido  
 
-Foi desenvolvido um jogo de perguntas e respostas baseado no jogo **Trivia**.
+Foi desenvolvido um jogo de perguntas e respostas baseado no jogo **Trivia**.  
 
-Raros são os elementos desenvolvidos totalmente por um dos membros da equipe isolamente. Minha participação consistiu no desenvolvimento de diversas partes da aplicação, notadamente, cálculo de pontuação, grande parte da estilização, páginas de configurações e ranking, além de vários componentes e suas respectivas funcionalidades.
-
+Raros são os elementos desenvolvidos totalmente por um dos membros da equipe isolamente.  
+Minha participação consistiu no desenvolvimento de diversas partes da aplicação,  
+notadamente, cálculo de pontuação, grande parte da estilização, páginas de configurações  
+e ranking, além de vários componentes e suas respectivas funcionalidades.  
+  
 Tecnologias e ferramentas utilizadas:  
 * VSCode  
 * JavaScript  

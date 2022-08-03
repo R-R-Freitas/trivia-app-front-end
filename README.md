@@ -14,25 +14,25 @@ Foi desenvolvido um jogo de perguntas e respostas baseado no jogo **Trivia**.
 Raros são os elementos desenvolvidos totalmente por um dos membros da equipe isolamente. Minha participação consistiu no desenvolvimento de diversas partes da aplicação, notadamente, cálculo de pontuação, grande parte da estilização, páginas de configurações e ranking, além de vários componentes e suas respectivas funcionalidades.
 
 Tecnologias e ferramentas utilizadas:  
--VSCode  
--JavaScript  
--HTML  
--CSS  
--SASS  
--React  
--Redux  
--API do Gravatar(https://br.gravatar.com/site/implement/images/)  
--API do Trivia(https://opentdb.com/api_config.php)  
--CryptoJS(https://github.com/brix/crypto-js)  
-
-
--Foram utilizados ESLint e StyleLint para garantir a legibilidade do código. 
-
-Para rodar o app, basta inserir os seguintes comandos no terminal, na pasta onde deseja instalá-lo:
+* VSCode  
+* JavaScript  
+* HTML  
+* CSS  
+* SASS  
+* React  
+* Redux  
+* API do Gravatar (https://br.gravatar.com/site/implement/images/)  
+* API do Trivia (https://opentdb.com/api_config.php)  
+* CryptoJS (https://github.com/brix/crypto-js)  
+  
+  
+-Foram utilizados ESLint e StyleLint para garantir a legibilidade do código.  
+  
+Para rodar o app, basta inserir os seguintes comandos no terminal, na pasta onde deseja instalá-lo:  
 
 ```
-git clone git@github.com:R-R-Freitas/trivia-app-front-end.git
-cd trivia-app-front-end
-npm install
-npm start
+git clone git@github.com:R-R-Freitas/trivia-app-front-end.git  
+cd trivia-app-front-end  
+npm install  
+npm start  
 ```

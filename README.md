@@ -7,7 +7,7 @@ Caio Veloso (https://github.com/Caio-Veloso)
 Kevin Oliveira (https://github.com/Kevin-Ol)  
 Johann Munzlinger (https://github.com/jmlinger)  
 
-## O que foi desenvolvido  
+#### O que foi desenvolvido  
 
 Foi desenvolvido um jogo de perguntas e respostas baseado no jogo **Trivia**.  
 
@@ -29,7 +29,7 @@ Tecnologias e ferramentas utilizadas:
 * CryptoJS (https://github.com/brix/crypto-js)  
   
   
--Foram utilizados ESLint e StyleLint para garantir a legibilidade do código.  
+-Foi utilizado ESLint para garantir a legibilidade do código.  
   
 Para rodar o app, basta inserir os seguintes comandos no terminal, na pasta onde deseja instalá-lo:  
 
